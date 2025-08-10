@@ -5,22 +5,20 @@ import FilterBar from "../../components/common/FilterBar";
 
 function Store() {
   return (
-    <div>
-      <div className="grid grid-cols-10 mb-4 ">
-        <div className="col-span-6 text-left">
-          <SearchBar />
+    <div className="space-y-4 p-4">
+        <div className="flex flex-row items-center justify-between gap-4 sm:w-3/4">
+          <div className="flex-grow">
+            <SearchBar />
+          </div>
+  
+          <div className="flex-shrink-0">
+            <Cart count={1} />
+          </div>
         </div>
-        <div className="col-span-1 text-left ml-16">
-          <Cart count={1} />
-        </div>
-      </div>
-
-      <div className="grid grid-cols-10 mb-4">
-        <div className="col-span-6 text-left w-full">
+        <div className="w-full sm:w-3/4">
           <FilterBar />
         </div>
       </div>
-    </div>
   );
 }
 

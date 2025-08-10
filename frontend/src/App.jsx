@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Sidebar from "./components/layout/Sidebar";
 import Community from "./pages/Community/Community";
@@ -16,9 +21,9 @@ function AppLayout() {
   const hideLayout = ["/login", "/signup"].includes(location.pathname);
 
   return (
-    <div className="flex">
+     <div className="flex flex-col lg:flex-row app">
       {!hideLayout && <Sidebar />}
-      <div className={!hideLayout ? "flex-1 ml-50" : "flex-1"}>
+      <div className={!hideLayout ? "flex-1 lg:ml-40" : "flex-1"}>
         {!hideLayout && <Navbar />}
         <Routes>
           <Route path="/" element={<Home />} />

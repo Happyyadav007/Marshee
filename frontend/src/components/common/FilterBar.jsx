@@ -26,13 +26,13 @@ export default function FilterBar() {
   return (
     <div className="flex gap-4 w-full">
       {/* Left group */}
-      <div className="flex items-center gap-3 border border-gray-400 rounded-lg px-4 py-1 w-1/2">
-        <span className="text-sm">Filter search</span>
+      <div className="flex items-center justify-end gap-3 border border-gray-400 rounded-lg px-4 py-1 w-1/2">
+        <span className="sm:text-sm text-[10px]">Filter search</span>
         {pets.map((pet) => (
           <button
             key={pet.id}
             onClick={() => togglePet(pet.id)}
-            className={`flex items-center justify-center w-10 h-10 rounded-full border border-blue-400 text-blue-500 hover:bg-blue-50 transition ${
+            className={`flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-blue-400 text-blue-500 hover:bg-blue-50 transition ${
               activePets.includes(pet.id) ? "bg-blue-50" : ""
             }`}
           >
@@ -42,12 +42,12 @@ export default function FilterBar() {
       </div>
 
       {/* Right group */}
-      <div className="flex items-center gap-2 border border-gray-400  rounded-lg px-4 py-1 w-1/2">
-        <span className="text-sm">Show results for</span>
+      <div className="flex items-center justify-end gap-2 border border-gray-400  rounded-lg px-4 py-1 w-1/2">
+        <span className="sm:text-sm text-[10px]">Show results for</span>
         {names.map((n) => (
           <span
             key={n.id}
-            className={`px-4 py-2 rounded-md text-sm font-medium ${n.color}`}
+            className={`px-2 sm:px-4 py-1 sm:py-2 rounded-md text-[10px] sm:text-sm font-medium ${n.color}`}
           >
             {n.id}
           </span>
