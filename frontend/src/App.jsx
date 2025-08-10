@@ -13,7 +13,6 @@ import Login from "./pages/Auth/Login";
 function AppLayout() {
   const location = useLocation();
 
-  // Pages that should NOT have sidebar/navbar
   const hideLayout = ["/login", "/signup"].includes(location.pathname);
 
   return (

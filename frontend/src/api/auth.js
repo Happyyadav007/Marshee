@@ -28,7 +28,7 @@ export const verifyOtpApi = async (form) => {
     return response.data;
   } catch (error) {
     console.log(error);
-    return error.response?.data?.message || "Something went wrong whilw verifying otp";
+    return error.response?.data?.message || "Something went wrong while verifying otp";
   }
 };
 

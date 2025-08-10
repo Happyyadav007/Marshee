@@ -1,9 +1,15 @@
 import React, { useState } from "react";
-import { registerWithEmailApi, sendOtpApi , verifyOtpApi } from "../../api/auth";
+import { registerWithEmailApi, sendOtpApi, verifyOtpApi } from "../../api/auth";
 
 export default function Signup() {
   const [mode, setMode] = useState("email");
-  const [form, setForm] = useState({ name: "", email: "", password: "", phone: "", otp: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+    phone: "",
+    otp: "",
+  });
   const [otpSent, setOtpSent] = useState(false);
 
   const handleChange = (e) => {
@@ -15,7 +21,7 @@ export default function Signup() {
       alert("Please enter your phone number");
       return;
     }
-    console.log("form before sending otp:-", form)
+    console.log("form before sending otp:-", form);
     const res = await sendOtpApi(form);
     if (res.success) {
       setOtpSent(true);
@@ -29,7 +35,7 @@ export default function Signup() {
     e.preventDefault();
 
     if (mode === "email") {
-        console.log("form:-", form);
+      console.log("form:-", form);
       // Email signup
       const res = await registerWithEmailApi(form);
       console.log("res:-", res);
@@ -56,14 +62,18 @@ export default function Signup() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-black">
       <div className="bg-gray-800 p-8 rounded-2xl shadow-lg w-96">
-        <h2 className="text-2xl font-bold text-white text-center mb-6">Sign Up</h2>
+        <h2 className="text-2xl font-bold text-white text-center mb-6">
+          Sign Up
+        </h2>
 
         {/* toggle */}
         <div className="flex mb-6">
           <button
             onClick={() => setMode("email")}
             className={`flex-1 py-2 rounded-l-md font-medium ${
-              mode === "email" ? "bg-yellow-400 text-black" : "bg-gray-700 text-white"
+              mode === "email"
+                ? "bg-yellow-400 text-black"
+                : "bg-gray-700 text-white"
             }`}
           >
             Email
@@ -71,7 +81,9 @@ export default function Signup() {
           <button
             onClick={() => setMode("phone")}
             className={`flex-1 py-2 rounded-r-md font-medium ${
-              mode === "phone" ? "bg-yellow-400 text-black" : "bg-gray-700 text-white"
+              mode === "phone"
+                ? "bg-yellow-400 text-black"
+                : "bg-gray-700 text-white"
             }`}
           >
             Phone
@@ -145,14 +157,13 @@ export default function Signup() {
             </>
           )}
         </form>
-         <p className="text-center text-sm mt-4 text-white">
+        <p className="text-center text-sm mt-4 text-white">
           Already have an account?{" "}
           <a href="/login" className="text-yellow-400">
             Login
           </a>
         </p>
       </div>
-
     </div>
   );
 }

@@ -4,7 +4,12 @@ import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [method, setMethod] = useState("email");
-  const [form, setForm] = useState({ email: "", password: "", phone: "", otp: "" });
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+    phone: "",
+    otp: "",
+  });
   const [otpSent, setOtpSent] = useState(false);
 
   const navigate = useNavigate();
@@ -38,7 +43,7 @@ export default function Login() {
       const res = await loginApi(form);
       if (res.success) {
         alert("Logged in successfully!");
-        navigate('/');
+        navigate("/");
       } else {
         alert(res.message || "Login failed");
       }
@@ -54,7 +59,7 @@ export default function Login() {
         const res = await verifyOtpApi({ phone: form.phone, otp: form.otp });
         if (res.success) {
           alert("Phone number verified and logged in!");
-          navigate('/');
+          navigate("/");
         } else {
           alert(res.message || "OTP verification failed");
         }
@@ -76,7 +81,9 @@ export default function Login() {
         <div className="flex justify-center mb-6">
           <button
             className={`px-4 py-2 rounded-l-full ${
-              method === "email" ? "bg-black text-white" : "bg-gray-200 text-black"
+              method === "email"
+                ? "bg-black text-white"
+                : "bg-gray-200 text-black"
             }`}
             onClick={() => {
               setMethod("email");
@@ -88,7 +95,9 @@ export default function Login() {
           </button>
           <button
             className={`px-4 py-2 rounded-r-full ${
-              method === "phone" ? "bg-black text-white" : "bg-gray-200 text-black"
+              method === "phone"
+                ? "bg-black text-white"
+                : "bg-gray-200 text-black"
             }`}
             onClick={() => {
               setMethod("phone");
