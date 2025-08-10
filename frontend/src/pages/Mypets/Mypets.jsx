@@ -1,5 +1,5 @@
 import React from 'react'
-import SearchBar from '../../components/common/Searchbar'
+import SearchBar from '../../components/common/SearchBar'
 import Cart from '../../components/common/Cart'
 import FilterBar from '../../components/common/FilterBar'
 
